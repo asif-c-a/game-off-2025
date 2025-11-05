@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bv7q7tgs076pq"]
+
+[ext_resource type="Script" uid="uid://b7j7biv8sk7jy" path="res://piston.gd" id="1_add6j"]
+[ext_resource type="Texture2D" uid="uid://bqc8733vypcxo" path="res://TileMap/bluestone_piston.png" id="1_jlm8o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mqr05"]
+size = Vector2(4, 4)
+
+[node name="Piston" type="StaticBody2D"]
+script = ExtResource("1_add6j")
+
+[node name="PistonSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_jlm8o")
+vframes = 2
+
+[node name="PistonHead" type="StaticBody2D" parent="."]
+
+[node name="PistonSprite2" type="Sprite2D" parent="PistonHead"]
+texture = ExtResource("1_jlm8o")
+vframes = 2
+frame = 1
+
+[node name="CollisionShape" type="CollisionShape2D" parent="PistonHead"]
+shape = SubResource("RectangleShape2D_mqr05")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mqr05")

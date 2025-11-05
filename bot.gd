@@ -4,6 +4,9 @@ extends CharacterBody2D
 @export var acceleration : float = 600.0
 @export var max_speed : float = 200.0
 @export var friction : float = 1000.0
+@export var jump_height : float = 200.0
+
+var emitter = preload("res://code_emitter.tscn")
 
 var dir = 0
 
@@ -11,13 +14,22 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	else:
-		velocity.y = 0
+		if Input.is_action_just_pressed("jump"):
+			velocity.y = -jump_height
+		else:
+			velocity.y = 0
 
 	inputs()
 	calcvel(delta)
 	move_and_slide()
 	bodyRot()
 	headRot(delta)
+	
+	if Input.is_action_just_pressed("interact"):
+		var em = emitter.instantiate()
+		add_child(em)
+		await get_tree().create_timer(.8).timeout
+		em.destroy()
 
 func inputs():
 	dir = 0
@@ -43,11 +55,11 @@ func calcvel(delta):
 
 func bodyRot():
 	if velocity.x > 0:
-		$Body.rotation_degrees += velocity.x / 5
+		$BodySprite.rotation_degrees += velocity.x / 5
 	elif velocity.x < 0:
-		$Body.rotation_degrees += velocity.x / 5
+		$BodySprite.rotation_degrees += velocity.x / 5
 	else:
-		$Body.rotation_degrees += 0
+		$BodySprite.rotation_degrees += 0
 
 func headRot(dt):
 	if velocity.x > 0:
