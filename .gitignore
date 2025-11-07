@@ -1,3 +1,35 @@
-# Godot 4+ specific ignores
+# Godot-specific
+.import/
+export_presets.cfg
 .godot/
-/android/
+*.translation
+*.import
+*.imported
+*.converted
+
+# User-specific files
+*.cfg
+*.ini
+*.db
+*.backup
+*.tmp
+*.log
+
+# OS-specific
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Build and cache folders
+bin/
+build/
+.cache/
+.tmp/
+
+# Exported builds (excluded from git)
+Export/
+
+# Backup files
+*.old
+*.bak
+*.orig
