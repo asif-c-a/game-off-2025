@@ -11,12 +11,13 @@ config_version=5
 [application]
 
 config/name="game-off-2025"
-run/main_scene="uid://i7f31qboomys"
+run/main_scene="uid://b7gwwqerxev3j"
 config/features=PackedStringArray("4.5", "Forward Plus")
 
 [autoload]
 
 BotMovement="*res://Scripts/Managers/bot_movement.gd"
+SceneManager="*res://Scripts/Managers/scene_manager.gd"
 
 [display]
 

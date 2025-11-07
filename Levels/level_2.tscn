@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://b670icjnv7xyp"]
+[gd_scene load_steps=15 format=4 uid="uid://b670icjnv7xyp"]
 
 [ext_resource type="Texture2D" uid="uid://4yuo5t4u4cso" path="res://Sprites/TileMaps/bluestone.png" id="1_pml6m"]
 [ext_resource type="PackedScene" uid="uid://bc67d5xx5cxkg" path="res://Scenes/Entities/life_thing.tscn" id="2_vltsr"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://vcffoenr2et" path="res://Scenes/Hack Blocks/pressure_plate.tscn" id="7_lmqi1"]
 [ext_resource type="PackedScene" uid="uid://bxveusb8wd6lt" path="res://Scenes/Hack Blocks/elevator.tscn" id="8_5yfph"]
 [ext_resource type="PackedScene" uid="uid://difjyc4grfl1n" path="res://Scenes/Hack Blocks/door_block_open.tscn" id="9_vltsr"]
+[ext_resource type="PackedScene" uid="uid://libktcf2c53q" path="res://Scenes/Menus/transition_screen.tscn" id="10_rp5ft"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_104vp"]
 texture = ExtResource("1_pml6m")
@@ -67,3 +68,5 @@ position = Vector2(19, 0)
 
 [node name="BottomRight" type="Marker2D" parent="."]
 position = Vector2(225, 94)
+
+[node name="TransitionScreen" parent="." instance=ExtResource("10_rp5ft")]
