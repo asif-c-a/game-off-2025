@@ -1,0 +1,23 @@
+[gd_scene load_steps=8 format=4 uid="uid://b3u4umjdi7a38"]
+
+[ext_resource type="PackedScene" uid="uid://c3p6h46aeveyk" path="res://Scenes/Hack Blocks/door_block.tscn" id="1_idgdu"]
+[ext_resource type="PackedScene" uid="uid://bv7q7tgs076pq" path="res://Scenes/Hack Blocks/piston_block.tscn" id="2_hde8r"]
+[ext_resource type="PackedScene" uid="uid://di8jrxeqhpyap" path="res://Scenes/Hack Blocks/terminal.tscn" id="3_1wmqu"]
+[ext_resource type="PackedScene" uid="uid://vcffoenr2et" path="res://Scenes/Hack Blocks/pressure_plate.tscn" id="4_3511x"]
+[ext_resource type="PackedScene" uid="uid://bxveusb8wd6lt" path="res://Scenes/Hack Blocks/elevator.tscn" id="5_4vb4s"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_20axg"]
+resource_name = "Hack_Blocks"
+scenes/1/scene = ExtResource("1_idgdu")
+scenes/2/scene = ExtResource("2_hde8r")
+scenes/3/scene = ExtResource("3_1wmqu")
+scenes/4/scene = ExtResource("4_3511x")
+scenes/5/scene = ExtResource("5_4vb4s")
+
+[sub_resource type="TileSet" id="TileSet_djyp6"]
+tile_size = Vector2i(4, 4)
+sources/0 = SubResource("TileSetScenesCollectionSource_20axg")
+
+[node name="Hack_Blocks" type="TileMapLayer"]
+tile_map_data = PackedByteArray("AAAtABEAAAAAAAAAAQAgABUAAAAAAAAAAgAfABUAAAAAAAAAAgAeABUAAAAAAAAAAgAXABQAAAAAAAAAAwArABMAAAAAAAAAAwA1ABEAAAAAAAAAAQA+ABMAAAAAAAAAAwBGABQAAAAAAAAAAgAxABQAAAAAAAAABABFABQAAAAAAAAABABOABkAAAAAAAAABQBMABkAAAAAAAAABAA=")
+tile_set = SubResource("TileSet_djyp6")

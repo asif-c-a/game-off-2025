@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bin67n0r3m5jo"]
+
+[ext_resource type="Script" uid="uid://cdmy2l7jpmqla" path="res://Scripts/mover.gd" id="1_gskug"]
+[ext_resource type="Texture2D" uid="uid://cekji5kxtq1qw" path="res://Sprites/Entities/mover.png" id="2_3fqcw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gskug"]
+radius = 1.0
+height = 4.0
+
+[node name="Mover" type="CharacterBody2D"]
+script = ExtResource("1_gskug")
+move_speed = 10.0
+
+[node name="MoverSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_3fqcw")
+offset = Vector2(0, -2)
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_gskug")

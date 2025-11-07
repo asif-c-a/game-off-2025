@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://di8jrxeqhpyap"]
+
+[ext_resource type="Script" uid="uid://i0irg75wbnon" path="res://Scripts/terminal.gd" id="1_7d6gb"]
+[ext_resource type="Texture2D" uid="uid://b5wmdx7cq0xxr" path="res://Sprites/Hack Blocks/terminal.png" id="2_b5qft"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0u45f"]
+radius = 5.0
+
+[node name="Terminal" type="Node2D"]
+script = ExtResource("1_7d6gb")
+emmision_radius = 60.0
+
+[node name="PlayerArea2D" type="Area2D" parent="."]
+position = Vector2(0, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea2D"]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_0u45f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_b5qft")
+vframes = 2
+
+[connection signal="body_entered" from="PlayerArea2D" to="." method="_on_player_area_2d_body_entered"]
+[connection signal="body_exited" from="PlayerArea2D" to="." method="_on_player_area_2d_body_exited"]

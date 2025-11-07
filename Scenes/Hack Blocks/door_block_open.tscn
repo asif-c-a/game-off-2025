@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://difjyc4grfl1n"]
+
+[ext_resource type="Script" uid="uid://b3c20y2u788y" path="res://Scripts/doorblock.gd" id="1_rpxhi"]
+[ext_resource type="Texture2D" uid="uid://bw1k0yjxp512e" path="res://Sprites/Hack Blocks/door.png" id="2_04ggk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_adaij"]
+size = Vector2(2, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_776xe"]
+size = Vector2(4, 4)
+
+[node name="Door_Block" type="StaticBody2D"]
+script = ExtResource("1_rpxhi")
+open_door = true
+
+[node name="Door_Holder" type="Sprite2D" parent="."]
+texture = ExtResource("2_04ggk")
+vframes = 2
+
+[node name="Door_Segment" type="StaticBody2D" parent="."]
+
+[node name="Door_Segment_Sprite" type="Sprite2D" parent="Door_Segment"]
+texture = ExtResource("2_04ggk")
+vframes = 2
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door_Segment"]
+shape = SubResource("RectangleShape2D_adaij")
+
+[node name="Door_Segment2" type="StaticBody2D" parent="Door_Segment"]
+
+[node name="Door_Segment_Sprite" type="Sprite2D" parent="Door_Segment/Door_Segment2"]
+texture = ExtResource("2_04ggk")
+vframes = 2
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door_Segment/Door_Segment2"]
+shape = SubResource("RectangleShape2D_adaij")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_776xe")

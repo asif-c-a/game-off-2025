@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://vcffoenr2et"]
+
+[ext_resource type="Script" uid="uid://cu037t2bu8uwo" path="res://Scripts/pressure_plate.gd" id="1_8bqyo"]
+[ext_resource type="Texture2D" uid="uid://dmu2vx2a3bnnd" path="res://Sprites/Hack Blocks/pressure_plate.png" id="2_djmga"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lhvrj"]
+size = Vector2(4, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8bqyo"]
+size = Vector2(2, 3)
+
+[node name="PressurePlate" type="StaticBody2D"]
+script = ExtResource("1_8bqyo")
+plate_move_speed = 10.0
+emmision_radius = 30.0
+trigger_delay = 0.3
+
+[node name="BaseSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_djmga")
+vframes = 2
+
+[node name="Plate" type="StaticBody2D" parent="."]
+
+[node name="PlateSprite" type="Sprite2D" parent="Plate"]
+texture = ExtResource("2_djmga")
+vframes = 2
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plate"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_lhvrj")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_8bqyo")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0.5714286, 0.9047619)
+polygon = PackedVector2Array(-0.5714286, -1.9047619, -1.5714285, -1.9047619, -2.5714285, -2.9047618, -2.5714285, 1.0952381, 1.4285715, 1.0952381, 1.4285715, -2.9047618, 0.4285714, -1.9047619)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

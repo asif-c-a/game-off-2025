@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bekoh60pyqgwd"]
+
+[ext_resource type="Script" uid="uid://dkqrw7clltdj4" path="res://Scripts/vert.gd" id="1_24yns"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_24yns"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_po4lb"]
+radius = 1.0
+
+[node name="Vert" type="CharacterBody2D"]
+script = ExtResource("1_24yns")
+expansion_speed = 50.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_24yns")
+disabled = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_po4lb")
