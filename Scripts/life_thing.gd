@@ -8,6 +8,7 @@ func _ready() -> void:
 	BotMovement.read_input = true
 	if loadingScreen == null:
 		printerr("Transition Screen Node not in scene")
+	loadingScreen.visible = true
 
 func _physics_process(delta: float) -> void:
 	$LifeSprite.position.y = lerp($LifeSprite.position.y, loc, 2 * delta)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://b670icjnv7xyp"]
+[gd_scene load_steps=17 format=4 uid="uid://b670icjnv7xyp"]
 
 [ext_resource type="Texture2D" uid="uid://4yuo5t4u4cso" path="res://Sprites/TileMaps/bluestone.png" id="1_pml6m"]
 [ext_resource type="PackedScene" uid="uid://bc67d5xx5cxkg" path="res://Scenes/Entities/life_thing.tscn" id="2_vltsr"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://bxveusb8wd6lt" path="res://Scenes/Hack Blocks/elevator.tscn" id="8_5yfph"]
 [ext_resource type="PackedScene" uid="uid://difjyc4grfl1n" path="res://Scenes/Hack Blocks/door_block_open.tscn" id="9_vltsr"]
 [ext_resource type="PackedScene" uid="uid://libktcf2c53q" path="res://Scenes/Menus/transition_screen.tscn" id="10_rp5ft"]
+[ext_resource type="Script" uid="uid://drbukxm6qf2fi" path="res://Scripts/tutorial.gd" id="11_1soli"]
+[ext_resource type="Texture2D" uid="uid://dh78vmsboifdo" path="res://Sprites/UI/Keys.png" id="12_4pbjs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_104vp"]
 texture = ExtResource("1_pml6m")
@@ -52,7 +54,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAABAAEAAAAAAAEAAAABAAEAAAAAAAIAAAABAAE
 tile_set = SubResource("TileSet_3momc")
 
 [node name="LifeThing" parent="." instance=ExtResource("2_vltsr")]
-position = Vector2(146, 57)
+position = Vector2(148, 58)
 
 [node name="Bot" parent="." node_paths=PackedStringArray("topLeftLimit", "bottomRightLimit") instance=ExtResource("3_rp5ft")]
 position = Vector2(75, 62)
@@ -70,3 +72,18 @@ position = Vector2(19, 0)
 position = Vector2(225, 94)
 
 [node name="TransitionScreen" parent="." instance=ExtResource("10_rp5ft")]
+visible = false
+
+[node name="Tutorial" type="Node2D" parent="."]
+position = Vector2(109, 96)
+script = ExtResource("11_1soli")
+keyboard_inputs = [0, 1, 2]
+xbox_inputs = [3, 4, 5]
+ps_inputs = [3, 6, 7]
+switch_inputs = [3, 8, 9]
+
+[node name="Keys" type="Sprite2D" parent="Tutorial"]
+visible = false
+texture = ExtResource("12_4pbjs")
+vframes = 10
+frame = 2

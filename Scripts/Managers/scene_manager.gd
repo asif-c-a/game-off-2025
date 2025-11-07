@@ -2,7 +2,8 @@ extends Node
 
 @export var scenes = [
 	preload("res://Levels/level_1.tscn"),
-	preload("res://Levels/level_2.tscn")
+	preload("res://Levels/level_2.tscn"),
+	preload("res://Levels/level_3.tscn")
 ]
 
 var curr_scene = 1

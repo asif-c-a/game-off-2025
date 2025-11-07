@@ -8,6 +8,8 @@ var expansion_speed : float = 50.0
 
 var hack_blocks = []
 
+@onready var grandParent = get_parent().get_parent()
+
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and playerIn:
@@ -35,8 +37,11 @@ func _on_player_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Bot":
 		interactionEntity = body
 		playerIn = true
+		grandParent.get_node("Tutorial").currentTutl = 2
+		grandParent.get_node("Tutorial").tutorialSprite.visible = true
 
 func _on_player_area_2d_body_exited(body: Node2D) -> void:
 	if body.name == "Bot":
 		interactionEntity = body
 		playerIn = false
+		grandParent.get_node("Tutorial").tutorialSprite.visible = false

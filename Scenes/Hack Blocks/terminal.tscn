@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b5wmdx7cq0xxr" path="res://Sprites/Hack Blocks/terminal.png" id="2_b5qft"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0u45f"]
-radius = 5.0
+radius = 3.1622777
 
 [node name="Terminal" type="Node2D"]
 script = ExtResource("1_7d6gb")
